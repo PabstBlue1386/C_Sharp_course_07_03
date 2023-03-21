@@ -18,24 +18,12 @@ Console.Write("Enter down border mass: ");
 int downBorder = int.Parse(Console.ReadLine()!);
 Console.Write("Enter up border mass: ");
 int upBorder = int.Parse(Console.ReadLine()!);
-
-int Counter(int [] arr, int from, int to)
+//TODO Допилить произведение пар чисел массива и вывести новый массив
+int [] ProductPairs(int[] arr)
 {
-    int count = 0;
-    for (int i = 0; i< arr.Length; i++)
+    int [] resultArr = new int[arr.Length/2];
+    for (int i = 0; i < arr.Length/2; i++)
     {
-        if (arr[i] >= from && arr[i] <= to)
-        count++;
+        for (int j = arr.Length; i>  )
     }
-    return count;
 }
-
-int [] mass = GenerateRandomArray(sizeMass, downBorder, upBorder);
-Console.Write("Enter down value: ");
-int downValue  = int.Parse(Console.ReadLine()!);
-Console.Write("Enter up value: ");
-int upValue = int.Parse(Console.ReadLine()!);
-PrintArray(mass);
-Console.WriteLine();
-int result = Counter(mass, downValue, upValue);
-Console.WriteLine(result);
