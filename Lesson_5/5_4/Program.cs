@@ -33,12 +33,12 @@ int[] ProductPairs(int[] arr)
     }
     else
     {
-        int[] resultArr = new int[arr.Length / 2 +1];
+        int[] resultArr = new int[arr.Length / 2 + 1];
         for (int i = 0; i < arr.Length / 2; i++)
         {
             resultArr[i] = arr[i] * arr[arr.Length - i - 1];
         }
-        resultArr[resultArr.Length -1] = arr[arr.Length /2];
+        resultArr[resultArr.Length - 1] = arr[arr.Length / 2];
         return resultArr;
     }
 
