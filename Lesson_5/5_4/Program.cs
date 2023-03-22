@@ -20,18 +20,32 @@ Console.Write("Enter up border mass: ");
 int upBorder = int.Parse(Console.ReadLine()!);
 
 
-int [] ProductPairs(int[] arr)
+int[] ProductPairs(int[] arr)
 {
-    int [] resultArr = new int[arr.Length/2];
-    for (int i = 0; i < arr.Length/2; i++)
+    if (arr.Length % 2 == 0)
     {
-        resultArr[i] = arr[i] * arr[arr.Length - i -1];
+        int[] resultArr = new int[arr.Length / 2];
+        for (int i = 0; i < arr.Length / 2; i++)
+        {
+            resultArr[i] = arr[i] * arr[arr.Length - i - 1];
+        }
+        return resultArr;
     }
-    return resultArr;
+    else
+    {
+        int[] resultArr = new int[arr.Length / 2 +1];
+        for (int i = 0; i < arr.Length / 2; i++)
+        {
+            resultArr[i] = arr[i] * arr[arr.Length - i - 1];
+        }
+        resultArr[resultArr.Length -1] = arr[arr.Length /2];
+        return resultArr;
+    }
+
 }
 
-int [] array = GenerateRandomArray(sizeMass,downBorder,upBorder);
-int [] result = ProductPairs(array);
+int[] array = GenerateRandomArray(sizeMass, downBorder, upBorder);
+int[] result = ProductPairs(array);
 PrintArray(array);
 Console.WriteLine();
 PrintArray(result);
