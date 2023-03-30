@@ -1,8 +1,9 @@
 ﻿double[] GenerateRandomArray(int sizeMass, int downBorder, int upBorder)
 {
     double[] arr = new double[sizeMass];
+    Random random = new Random();
     for (int i = 0; i < arr.Length; i++)
-        arr[i] = new Random().Next(downBorder, upBorder + 1);
+        arr[i] = Math.Round(random.NextDouble() + (upBorder - downBorder) + upBorder, 2);
     return arr;
 }
 
