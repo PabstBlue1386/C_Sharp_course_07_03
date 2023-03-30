@@ -26,7 +26,7 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($" {array[i,j]}");
+            Console.Write($" [{array[i,j]}]");
         }
         Console.WriteLine();
     }
@@ -34,25 +34,6 @@ void PrintArray(int[,] array)
     Console.WriteLine();
 }
 
-int[,] CopyArray(int[,] arr)
-{
-    int rows = arr.GetLength(0);
-    int columns = arr.GetLength(1);
-    int[,] result = new int[rows,columns];
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < columns; j++)
-        {
-            result[i,j] = arr[i,j];
-        }
-        
-    }
-    return result;
-}
-
 int[,] matrix = GenerateRandomArray();
 PrintArray(matrix);
-Console.WriteLine();
-int[,] newMatrix = CopyArray(matrix);
-PrintArray(newMatrix);
+
