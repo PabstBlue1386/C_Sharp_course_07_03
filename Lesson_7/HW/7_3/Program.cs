@@ -20,13 +20,13 @@
     return arr;
 }
 
-void PrintArray(int[,] array)
+void PrintArray(int[,] arr)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            Console.Write($" {array[i,j]}");
+            Console.Write($" [{arr[i, j]}]");
         }
         Console.WriteLine();
     }
@@ -34,25 +34,33 @@ void PrintArray(int[,] array)
     Console.WriteLine();
 }
 
-int[,] CopyArray(int[,] arr)
+void Average(int[,] arr)
 {
-    int rows = arr.GetLength(0);
-    int columns = arr.GetLength(1);
-    int[,] result = new int[rows,columns];
+    double aver = 0;
 
-    for (int i = 0; i < rows; i++)
+
+    for (int i = 0; i < arr.GetLength(1); i++)
     {
-        for (int j = 0; j < columns; j++)
+
+
+        aver = 0;
+        for (int j = 0; j < arr.GetLength(0); j++)
         {
-            result[i,j] = arr[i,j];
+            aver += arr[j, i];
         }
-        
+        aver = Math.Round(aver / arr.GetLength(0), 2);
+        Console.Write($" [{aver}]");
+
     }
-    return result;
+
 }
+
 
 int[,] matrix = GenerateRandomArray();
 PrintArray(matrix);
-Console.WriteLine();
-int[,] newMatrix = CopyArray(matrix);
-PrintArray(newMatrix);
+
+Average(matrix);
+
+
+
+

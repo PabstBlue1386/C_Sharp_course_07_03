@@ -26,7 +26,7 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($" {array[i,j]}");
+            Console.Write($" [{array[i, j]}]");
         }
         Console.WriteLine();
     }
@@ -34,25 +34,24 @@ void PrintArray(int[,] array)
     Console.WriteLine();
 }
 
-int[,] CopyArray(int[,] arr)
+String FindElement(int[,] arr, int rows, int columns)
 {
-    int rows = arr.GetLength(0);
-    int columns = arr.GetLength(1);
-    int[,] result = new int[rows,columns];
-
-    for (int i = 0; i < rows; i++)
+    if (rows == 0 || columns == 0 || rows > arr.GetLength(0) || columns > arr.GetLength(0)  || rows > arr.GetLength(1)  || columns > arr.GetLength(1) )
+        return $"Failed. You are out of range ";
+    
+    else
     {
-        for (int j = 0; j < columns; j++)
-        {
-            result[i,j] = arr[i,j];
-        }
-        
+        return $"The array element you were looking for {arr[rows-1,columns-1]} {(rows, columns)}";   
     }
-    return result;
+    ;
 }
+
 
 int[,] matrix = GenerateRandomArray();
 PrintArray(matrix);
-Console.WriteLine();
-int[,] newMatrix = CopyArray(matrix);
-PrintArray(newMatrix);
+Console.Write("Enter rows: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Enter columns: ");
+int columns = int.Parse(Console.ReadLine()!);
+String result = FindElement(matrix, rows,  columns);
+Console.WriteLine(result);

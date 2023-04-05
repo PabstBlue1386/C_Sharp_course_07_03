@@ -26,7 +26,7 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($" {array[i,j]}");
+            Console.Write($" [{array[i,j]}]");
         }
         Console.WriteLine();
     }
@@ -34,25 +34,24 @@ void PrintArray(int[,] array)
     Console.WriteLine();
 }
 
-int[,] CopyArray(int[,] arr)
+int SumElemens(int[,]arr)
 {
-    int rows = arr.GetLength(0);
-    int columns = arr.GetLength(1);
-    int[,] result = new int[rows,columns];
-
-    for (int i = 0; i < rows; i++)
+    int sum =0;
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < columns; j++)
+        
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            result[i,j] = arr[i,j];
+            if(i==j)
+            sum += arr[i,j];
         }
         
     }
-    return result;
+    return sum;
 }
 
 int[,] matrix = GenerateRandomArray();
 PrintArray(matrix);
-Console.WriteLine();
-int[,] newMatrix = CopyArray(matrix);
-PrintArray(newMatrix);
+int sumEl = SumElemens(matrix);
+Console.Write($"Sum -> {sumEl}");
+

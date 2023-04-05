@@ -1,0 +1,35 @@
+﻿int[,] GenerateRandomArray()
+{
+    Console.Write("Enter number rows: ");
+    int rows = int.Parse(Console.ReadLine()!);
+    Console.Write("Enter number columns: ");
+    int columns = int.Parse(Console.ReadLine()!);
+    int[,] arr = new int[rows, columns];
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            arr[i, j] = i+j;
+        }
+    }
+
+    return arr;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($" [{array[i,j]}]");
+        }
+        Console.WriteLine();
+    }
+
+    Console.WriteLine();
+}
+
+int[,] matrix = GenerateRandomArray();
+PrintArray(matrix);
+
